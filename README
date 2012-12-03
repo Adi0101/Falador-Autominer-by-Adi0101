@@ -1,1 +1,27 @@
-Test
+Falador Autominer V1 by Adi0101
+
+First words:
+
+This is my first script and since i startet scripting 3-4 days before releasing it im pretty satisfied with my work.
+I hope you can find use of this script and also give me tipps on what to improve.
+
+
+Features:
+- Mines Iron, coal, mithril and adamant ores in Falador(outside of the guild)
+- Can select between: Banking at Faldor east bank, droping or using the deposit box in the mysterious entrance
+- Simple Gui & paint
+- Flawless
+
+Setup:
+To run the script you have to have any pickaxe equipped(not in your inventory) & run the script anywhere between Falador
+east bank and the ores.
+
+
+Changelog:
+
+- V 1.0:
+Initial release
+
+
+To-do:
+- Anti ban
