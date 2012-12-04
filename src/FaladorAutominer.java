@@ -11,9 +11,11 @@ import org.powerbot.game.api.Manifest;
 import org.powerbot.game.api.methods.Calculations;
 import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.input.Mouse;
+import org.powerbot.game.api.methods.tab.Skills;
 import org.powerbot.game.api.util.Filter;
 import org.powerbot.game.api.util.Random;
 import org.powerbot.game.api.util.Timer;
+import org.powerbot.game.api.wrappers.Area;
 import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.node.SceneObject;
 
@@ -29,9 +31,50 @@ public class FaladorAutominer extends ActiveScript implements PaintListener {
 private final List<Node> jobsCollection = Collections.synchronizedList(new ArrayList<Node>());
 private Tree jobContainer = null;
 
+
+//Area
+public final static Area area = new Area(new Tile[] {		
+		new Tile(3009, 3355, 0), new Tile(3010, 3355, 0),
+		new Tile(3011, 3355, 0),new Tile(3012, 3355, 0),
+		new Tile(3013, 3355, 0), new Tile(3014, 3355, 0),
+		new Tile(3015, 3355, 0),new Tile(3016, 3355, 0),
+		new Tile(3017, 3355, 0),new Tile(3018, 3355, 0),
+		new Tile(3009, 3356, 0), new Tile(3010, 3356, 0),
+		new Tile(3011, 3356, 0),new Tile(3012, 3356, 0),
+		new Tile(3013, 3356, 0), new Tile(3014, 3356, 0),
+		new Tile(3015, 3356, 0),new Tile(3016, 3356, 0),
+		new Tile(3017, 3356, 0),new Tile(3018, 3356, 0),
+		new Tile(3009, 3357, 0), new Tile(3010, 3357, 0),
+		new Tile(3011, 3357, 0),new Tile(3012, 3357, 0),
+		new Tile(3013, 3357, 0), new Tile(3014, 3357, 0),
+		new Tile(3015, 3357, 0),new Tile(3016, 3357, 0),
+		new Tile(3017, 3357, 0),new Tile(3018, 3357, 0),				
+		new Tile(3009, 3358, 0), new Tile(3010, 3358, 0),
+		new Tile(3011, 3358, 0),new Tile(3012, 3358, 0),
+		new Tile(3013, 3358, 0), new Tile(3014, 3358, 0),
+		new Tile(3015, 3358, 0),new Tile(3016, 3358, 0),
+		new Tile(3017, 3358, 0),new Tile(3018, 3358, 0),				
+		new Tile(3009, 3359, 0), new Tile(3010, 3359, 0),
+		new Tile(3011, 3359, 0),new Tile(3012, 3359, 0),
+		new Tile(3013, 3359, 0), new Tile(3014, 3359, 0),
+		new Tile(3015, 3359, 0),new Tile(3016, 3359, 0),
+		new Tile(3017, 3359, 0),new Tile(3018, 3359, 0),				
+		new Tile(3009, 3360, 0), new Tile(3010, 3360, 0),
+		new Tile(3011, 3360, 0),new Tile(3012, 3360, 0),
+		new Tile(3013, 3360, 0), new Tile(3014, 3360, 0),
+		new Tile(3015, 3360, 0),new Tile(3016, 3360, 0),
+		new Tile(3017, 3360, 0),new Tile(3018, 3360, 0),	
+		new Tile(3009, 3361, 0), new Tile(3010, 3361, 0),
+		new Tile(3011, 3361, 0),new Tile(3012, 3361, 0),
+		new Tile(3013, 3361, 0), new Tile(3014, 3361, 0),
+		new Tile(3015, 3361, 0),new Tile(3016, 3361, 0),
+		new Tile(3017, 3361, 0),new Tile(3018, 3361, 0),
+});
 //Paint stuff
 public final Timer timer = new Timer(0);
 public static int oresbankedordropped=0;
+
+public static int startxp;
 
 private final Color color1 = new Color(102, 102, 102, 200);
 private final Color color2 = new Color(0, 0, 0);
@@ -128,6 +171,7 @@ public static Filter<SceneObject> AdamantFilter = new Filter<SceneObject>(){
 
         @Override
         public void onStart() {
+        	startxp = Skills.getExperience(Skills.MINING);
         	g.setVisible(true);
         	while(guiWait == true) sleep(500);
         	provide(new Mining());
@@ -169,6 +213,7 @@ public static Filter<SceneObject> AdamantFilter = new Filter<SceneObject>(){
             g.setColor(color4);
             g.drawString("Time Running: " +timer.toElapsedString(), 19, 440);
             g.drawString("Ores Banked/Dropped: " +oresbankedordropped, 19, 461);
+            g.drawString("Experience Gained: "+startxp, 19, 481);
             g.setFont(font3);
             g.setColor(color3);
             g.drawString("Script by adi0101", 408, 502);
